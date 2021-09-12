@@ -1,9 +1,9 @@
 
 function generatePassword() {
   var length = prompt('Choose a password length with a minimum of 8 characters and a max of 128 characters!');
-      while (length < 8) {
-      if (length < 8) {
-        alert("ERROR: Password length must exceed 8 characters. Please enter a higher higher then 8!");
+      while (length < 8 || length > 128) {
+      if (length < 8 || length > 128) {
+        alert("ERROR: Password does not meet requirement. Minimum of 8 characters, max of 128. Please try again!");
         var length = prompt('Choose a password length with a minimum of 8 characters and a max of 128 characters!');
      }
   };
