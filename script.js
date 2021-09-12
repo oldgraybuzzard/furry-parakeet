@@ -1,6 +1,12 @@
 
 function generatePassword() {
-  var length = prompt('Choose a password length with a minimu, of 8 characters and a max of 128 characters!');
+  var length = prompt('Choose a password length with a minimum of 8 characters and a max of 128 characters!');
+      while (length < 8) {
+      if (length < 8) {
+        alert("ERROR: Password length must exceed 8 characters. Please enter a higher higher then 8!");
+        var length = prompt('Choose a password length with a minimum of 8 characters and a max of 128 characters!');
+     }
+  };
   var addSpecialCharacters = confirm('Do you want special characters?');
   var addNumbers = confirm('Do you want to add numbers?');
   var string = "abcdefghijklmnopqrstuvwxyz"; //to upper 
@@ -10,17 +16,17 @@ function generatePassword() {
   var character = "";
   var crunch = true;
   while( password.length<length ) {
-      entity1 = Math.ceil(string.length * Math.random()*Math.random());
-      entity2 = Math.ceil(passwordNumbers.length * Math.random()*Math.random());
-      entity3 = Math.ceil(symbols.length * Math.random()*Math.random());
-      hold = string.charAt( entity1 );
+      char1 = Math.ceil(string.length * Math.random()*Math.random());
+      char2 = Math.ceil(passwordNumbers.length * Math.random()*Math.random());
+      char3 = Math.ceil(symbols.length * Math.random()*Math.random());
+      hold = string.charAt(char1);
       hold = (password.length%0==0)?(hold.toUpperCase()):(hold);
       character += hold;
       if (addNumbers === true) {
-          character += passwordNumbers.charAt( entity2 );
+          character += passwordNumbers.charAt(char2);
       };
       if (addSpecialCharacters === true) {
-         character += symbols.charAt( entity3 );
+         character += symbols.charAt(char3);
       };
       password = character;
   }
