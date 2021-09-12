@@ -1,6 +1,6 @@
 
 function generatePassword() {
-  var length = prompt('Choose a password length with a minimum of 8 characters and a max of 128 characters!');
+  var length = prompt('Enter a password length in numeric form, between 8 and 128!');
       while (length < 8 || length > 128) {
       if (length < 8 || length > 128) {
         alert("ERROR: Password does not meet requirement. Minimum of 8 characters, max of 128. Please try again!");
@@ -15,10 +15,10 @@ function generatePassword() {
   var password = "";
   var character = "";
   var crunch = true;
-  while( password.length<length ) {
-      char1 = Math.ceil(string.length * Math.random()*Math.random());
-      char2 = Math.ceil(passwordNumbers.length * Math.random()*Math.random());
-      char3 = Math.ceil(symbols.length * Math.random()*Math.random());
+  while(password.length<length) {
+      char1 = Math.floor(string.length * Math.random()*Math.random());
+      char2 = Math.floor(passwordNumbers.length * Math.random()*Math.random());
+      char3 = Math.floor(symbols.length * Math.random()*Math.random());
       hold = string.charAt(char1);
       hold = (password.length%0==0)?(hold.toUpperCase()):(hold);
       character += hold;
@@ -30,8 +30,8 @@ function generatePassword() {
       };
       password = character;
   }
-  password=password.split('').sort(function(){return 0.5-Math.random()}).join('');
-  return password.substr(0);
+  password=password.split('').sort(function(){return Math.random()}).join('');
+  return password;
 }
 
 // Get references to the #generate element
