@@ -6,7 +6,6 @@
   var character = "";
 
 function generatePassword() {
-  debugger;
   var passLength = prompt('Enter a password length in numeric form, between 8 and 128!');
       while (passLength < 8 || passLength > 128) {
       //if (passLength < 8 || passLength > 128) {
@@ -63,6 +62,8 @@ function generatePassword() {
 
   //password=password.split('').sort(function(){return Math.floor(Math.random())}).join('');
   return password;
+  password.clear();
+
 }
 
 // Get references to the #generate element
